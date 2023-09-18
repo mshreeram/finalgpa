@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-import dj_database_url
+
 import os
 
 from pathlib import Path
@@ -25,10 +25,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-yax_+a__t8scaac=#z&v-gha(p#v0td&!)+&xf^#k-=dqv(&j!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = ['https://*.mshreeram.in','https://*.127.0.0.1','https://*.azurewebsites.net', '*']
+CSRF_TRUSTED_ORIGINS = ['https://*.mshreeram.in','https://*.127.0.0.1','https://*.azurewebsites.net']
 
 
 # Application definition
@@ -78,15 +78,18 @@ WSGI_APPLICATION = 'gpa.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-database_url = os.environ.get("DATABASE_URL")
-
 DATABASES = {
     'default': {
-        'ENGINE' : 'django.db.backends.sqlite3',
-        'NAME' : BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'kfxdxxhi',
+        'USER': 'kfxdxxhi',
+        'PASSWORD': 'o-0-XiTc44yH__fjkVQyo2yWVswcbSBS',
+        'HOST': 'arjuna.db.elephantsql.com',
+        # 'ENGINE' : 'django.db.backends.sqlite3',
+        # 'NAME' : BASE_DIR / 'db.sqlite3',
     }
 }
-DATABASES["default"] = dj_database_url.parse(database_url)
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
